@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Dated : 22/21/2021
+ *
+ * This is a Developer Controller: in use: serves as reference code for future projects
+ * 
+ * @author   Silas Udofia <Silas@Verixon.com>
+ */
+
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
