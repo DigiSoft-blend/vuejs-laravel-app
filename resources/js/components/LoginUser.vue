@@ -1,6 +1,7 @@
 <template>
 
- <main class="form-signin">
+<div>
+  <main class="form-signin">
   <form @submit="addUser">
     
     <h1 class="h3 mb-3 fw-normal">Sign in with Facebook</h1>
@@ -24,6 +25,8 @@
   </form>
 </main>
 
+</div>
+ 
  
 </template>
 
@@ -50,3 +53,4 @@
         }
     }
 </script>
+

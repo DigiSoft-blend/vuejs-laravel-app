@@ -1,16 +1,6 @@
 <template>
-    <div class="container">
-<!--       
-       <div class="card card-body mb-2 bg-dark" v-for="user in getUsers" :key="user.id">
-          <h3>{{ user.email }}</h3>
-          <p>{{  user.password }}</p>
-          <hr>
-          <button class="btn btn-danger" @click="deleteArticle(article.id)">delete</button>
-       </div> -->
-
-
-
-<div class="container-fluid bg-dark" style="color:white">
+    <div class="container colr">
+<div class="container-fluid image6 colr">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
@@ -103,7 +93,7 @@
         </div>
       </div>
 
-      <h2>Section title</h2>
+      <h2>Credentials</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -113,12 +103,12 @@
               <th scope="col">Password</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="background">
 
             <tr v-for="user in getUsers" :key="user.id">
-              <td  style="color:white">{{ user.id }}</td>
-              <td  style="color:white">{{ user.email }}</td>
-              <td  style="color:white">{{ user.password }}</td>
+              <td>{{ user.id }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.password }}</td>
             </tr>
            
           </tbody>
@@ -150,3 +140,11 @@ export default {
 };
 </script>
 
+<style scoped>
+   .colr{
+    color: beige
+   }
+   .background{
+      background-color: rgb(235, 235, 233);
+   }
+</style>

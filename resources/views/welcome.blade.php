@@ -17,13 +17,33 @@
 
 <style>
 
-  /* body {
-  margin: 0;
-  font-family: 'Lucida Grande', tahoma,verdana,arial,sans-serif;
-  line-height: 1.28;
-  background-color:#3b5998; */
-  /* background-color:#3b2698;
-}  */
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -31,6 +51,87 @@
         -moz-user-select: none;
         user-select: none;
       }
+.bc{
+  background-image: url('./images/pexels-rūdolfs-klintsons-7767498.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color:beige
+}
+      
+.image1 {
+  background-image: url('./images/pexels-rūdolfs-klintsons-7767498.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image2{
+  background-image: url('./images/pexels-daniel-dan-7712570.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image3{
+  background-image: url('./images/pexels-david-mcbee-730564.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.image4{
+  background-image: url('./images/pexels-alesia-kozik-6765369.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image5{
+  background-image: url('./images/pexels-david-mcbee-730564.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.image6{
+  background-image: url('./images/pexels-daniel-dan-7712570.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
@@ -42,11 +143,11 @@
 
 </head>
 
-<body>
+<body class="bc">
  <div id="app">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd">
   <div class="container">
-    <h1 class="mr-2">BCO &#36 Airdroper </h1>
+    <h1 class="mr-2" style="color:black">BCO &#36 Airdroper </h1>
   </div>
 </nav>
   
@@ -76,36 +177,26 @@
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-12 col-md">
-        <img class="mb-2" src="../assets/brand/bootstrap-logo.svg" alt="" width="24" height="19">
-        <small class="d-block mb-3 text-muted">&copy; 2017–2021</small>
+        <small class="d-block mb-3 text-muted">&copy; 2021–2030</small>
       </div>
       <div class="col-6 col-md">
         <h5>Features</h5>
         <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">BCO@gmail.com</a></li>
+          
         </ul>
       </div>
       <div class="col-6 col-md">
         <h5>Resources</h5>
         <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Contact Us</a></li>
+          
         </ul>
       </div>
       <div class="col-6 col-md">
         <h5>About</h5>
         <ul class="list-unstyled text-small">
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
         </ul>
       </div>
     </div>
