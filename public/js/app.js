@@ -2050,6 +2050,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.showUsers();
@@ -6782,7 +6785,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.colr[data-v-040e2ab9]{\n    color: beige\n}\n.background[data-v-040e2ab9]{\n      background-color: rgb(235, 235, 233);\n}\n.button[data-v-040e2ab9] {\n  display: inline-block;\n  border-radius: 4px;\n  background-color: #f4511e;\n  border: none;\n  color: #FFFFFF;\n  text-align: center;\n  font-size: 12px;\n  padding: 10px;\n  width: 150px;\n  transition: all 0.5s;\n  cursor: pointer;\n  margin: 5px;\n}\n.button span[data-v-040e2ab9] {\n  cursor: pointer;\n  display: inline-block;\n  position: relative;\n  transition: 0.5s;\n}\n.button span[data-v-040e2ab9]:after {\n  content: '\\BB';\n  position: absolute;\n  opacity: 0;\n  top: 0;\n  right: -20px;\n  transition: 0.5s;\n}\n.button:hover span[data-v-040e2ab9] {\n  padding-right: 25px;\n}\n.button:hover span[data-v-040e2ab9]:after {\n  opacity: 1;\n  right: 0;\n}\n@media (min-width: 768px) {\n.bd-placeholder-img-lg[data-v-040e2ab9] {\n          font-size: 3.5rem;\n}\n}\n\n", ""]);
+exports.push([module.i, "\n.colr[data-v-040e2ab9]{\n    color: rgb(32, 32, 32)\n}\n.background[data-v-040e2ab9]{\n      background-color: rgb(235, 235, 233);\n}\n.button[data-v-040e2ab9] {\n  display: inline-block;\n  border-radius: 4px;\n  background-color: #f4511e;\n  border: none;\n  color: #FFFFFF;\n  text-align: center;\n  font-size: 12px;\n  padding: 10px;\n  width: 150px;\n  transition: all 0.5s;\n  cursor: pointer;\n  margin: 5px;\n}\n.button span[data-v-040e2ab9] {\n  cursor: pointer;\n  display: inline-block;\n  position: relative;\n  transition: 0.5s;\n}\n.button span[data-v-040e2ab9]:after {\n  content: '\\BB';\n  position: absolute;\n  opacity: 0;\n  top: 0;\n  right: -20px;\n  transition: 0.5s;\n}\n.button:hover span[data-v-040e2ab9] {\n  padding-right: 25px;\n}\n.button:hover span[data-v-040e2ab9]:after {\n  opacity: 1;\n  right: 0;\n}\n@media (min-width: 768px) {\n.bd-placeholder-img-lg[data-v-040e2ab9] {\n          font-size: 3.5rem;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -38971,7 +38974,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container colr" }, [
-    _c("div", { staticClass: "container-fluid image6 colr" }, [
+    _c("div", { staticClass: "container-fluid background colr" }, [
       _c("div", { staticClass: "row" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -56618,6 +56621,24 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('navbar', __webpack_require
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('btn-component', __webpack_require__(/*! ./components/Btn */ "./resources/js/components/Btn.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('deleteuser-component', __webpack_require__(/*! ./components/DeleteUser */ "./resources/js/components/DeleteUser.vue")["default"]);
 
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_3__["default"]);
+router.beforeEach(function (to, from, next) {
+  if (to.matched.some(function (record) {
+    return record.meta.requiresAuth;
+  })) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters.loggedIn) {
+      next({
+        path: '/login'
+      });
+    } else {
+      next();
+    }
+  } else {
+    next(); // make sure to always call next()!
+  }
+});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -56626,7 +56647,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('deleteuser-component', __w
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
-  router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_3__["default"]),
+  router: router,
   store: _store__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 
@@ -57498,21 +57519,36 @@ __webpack_require__.r(__webpack_exports__);
     name: 'Home'
   }, {
     path: '/login',
-    component: _components_Login__WEBPACK_IMPORTED_MODULE_1__["default"]
+    component: _components_Login__WEBPACK_IMPORTED_MODULE_1__["default"],
+    meta: {
+      requiresVisitor: true
+    }
   }, {
     path: '/loginuser',
-    component: _components_LoginUser__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _components_LoginUser__WEBPACK_IMPORTED_MODULE_2__["default"],
+    meta: {
+      requiresVisitor: true
+    }
   }, {
     path: '/dashboard',
     component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"],
-    name: 'dashboard'
+    name: 'dashboard',
+    meta: {
+      requiresAuth: true
+    }
   }, {
     path: '/register',
-    component: _components_Register__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_Register__WEBPACK_IMPORTED_MODULE_5__["default"],
+    meta: {
+      requiresVisitor: true
+    }
   }, {
     path: '/logout',
     component: _components_Logout__WEBPACK_IMPORTED_MODULE_6__["default"],
-    name: 'logout'
+    name: 'logout',
+    meta: {
+      requiresAuth: true
+    }
   }]
 });
 
@@ -57542,7 +57578,13 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_4___default.a);
-var debug = "development" !== "production"; // Create store
+var debug = "development" !== "production"; // router.beforeEach((to, from, next) => {
+//   if (to.matched.some((record) => record.meta.requiresAuth)) {
+//   } else {
+//      next()
+//   }
+// })
+// Create store
 
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {

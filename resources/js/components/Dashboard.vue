@@ -1,6 +1,6 @@
 <template>
     <div class="container colr">
-<div class="container-fluid image6 colr">
+<div class="container-fluid background colr">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
@@ -121,6 +121,9 @@
 </div>
        
     </div>
+
+     
+
 </template>
 
 <script>
@@ -153,7 +156,7 @@ export default {
 
 <style scoped>
    .colr{
-    color: beige
+    color: rgb(32, 32, 32)
    }
    .background{
       background-color: rgb(235, 235, 233);

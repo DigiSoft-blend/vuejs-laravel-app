@@ -9,6 +9,8 @@ import store from './store/modules/auth' // your vuex store
 
 
 export default{
+
+
     mode: 'history',
     routes: [
         {
@@ -18,30 +20,46 @@ export default{
         {
             path: '/',
             component: Home,
-            name: 'Home'
+            name: 'Home',
+         
         },
         {
             path: '/login',
             component: Login,
+            meta: {
+                requiresVisitor: true,
+            }
         },
         {
             path: '/loginuser',
             component: LoginUser,
+            meta: {
+                requiresVisitor: true,
+            }
         },
         {
             path: '/dashboard',
             component: Dashboard,
             name: 'dashboard',
+            meta: {
+                requiresAuth: true,
+            }
         },
         {
             path: '/register',
             component: Register,
+            meta: {
+                requiresVisitor: true,
+            }
         },
       
         {
             path: '/logout',
             component: Logout,
-            name: 'logout'
+            name: 'logout',
+            meta: {
+                requiresAuth: true,
+            }
         }
     ]
 }

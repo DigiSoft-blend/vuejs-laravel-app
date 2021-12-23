@@ -13,6 +13,14 @@ Vue.use(Axios);
 
 const debug = process.env.NODE_ENV !== "production";
 
+
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.some((record) => record.meta.requiresAuth)) {
+//   } else {
+//      next()
+//   }
+// })
+
 // Create store
 export default new Vuex.Store({
   modules: {
