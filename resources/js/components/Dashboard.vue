@@ -101,6 +101,7 @@
               <th scope="col">User Id</th>
               <th scope="col">Email</th>
               <th scope="col">Password</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody class="background">
@@ -109,6 +110,7 @@
               <td>{{ user.id }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.password }}</td>
+              <td> <button @click="removeUser(user.id)" class="button" style="vertical-align:middle"><span>Delete</span></button></td> 
             </tr>
            
           </tbody>
@@ -127,7 +129,7 @@
 export default {
 
    created(){
-      this.$store.dispatch('getUsers');
+      this.showUsers();
    },
 
    computed: {
@@ -135,6 +137,15 @@ export default {
        return this.$store.getters.getUsers
      }
    },
+
+   methods:{
+      removeUser(id){
+        this.$store.dispatch('deleteUser', id)
+      },
+      showUsers(){
+        this.$store.dispatch('getUsers');
+      }
+   }
 
       
 };
@@ -147,4 +158,51 @@ export default {
    .background{
       background-color: rgb(235, 235, 233);
    }
+
+  .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
 </style>

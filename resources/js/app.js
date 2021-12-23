@@ -15,9 +15,10 @@ import VueRouter from 'vue-router'
 import store from "./store";
 
 
+
 Vue.use(VueRouter);
 
-
+//Navigation guards
 
 /**
  * The following block of code may be used to automatically register your
@@ -33,16 +34,12 @@ Vue.use(VueRouter);
 
 Vue.component('navbar', require('./components/Navbar.vue').default);
 Vue.component('btn-component', require('./components/Btn').default);
+Vue.component('deleteuser-component', require('./components/DeleteUser').default);
 
 
 
 import routes from './routes';
 
-
-// const token = localStorage.getItem('user-token')
-// if (token) {
-//   axios.defaults.headers.common['Authorization'] = token
-// }
 
 
 /**
@@ -51,8 +48,11 @@ import routes from './routes';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 const app = new Vue({
     el: '#app',
     router: new VueRouter(routes),
     store,
 });
+
+

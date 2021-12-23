@@ -7,12 +7,12 @@
     <h1 class="h3 mb-3 fw-normal">Sign in with Facebook</h1>
 
     <div class="form-floating mb-2">
-      <input v-model="email"  type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email or Mobile nomber</label>
+      <input v-model="email"  type="email" class="form-control colr" id="floatingInput" placeholder="name@example.com">
+      <label class="colr" for="floatingInput">Email or Mobile nomber</label>
     </div>
     <div class="form-floating">
-      <input v-model="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <input v-model="password" type="password" class="form-control colr" id="floatingPassword" placeholder="Password">
+      <label class="colr" for="floatingPassword">Password</label>
     </div>
 
     <div class="checkbox mb-3">
@@ -49,8 +49,33 @@
                     email: this.email,
                     password: this.password
                  })
+                 .then(response => {
+                    if(response.status == 200){
+                        Swal.fire({
+                        icon: 'success',
+                        title: 'Congratulation',
+                        text: 'You just earned 500 BCO worth $400',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                  })
+                    }
+                 })
+                 .catch(error => {
+                     if(error.response.status == 422){
+                         Swal.fire({
+                          icon: 'warning',
+                          title: 'Oops..',
+                          text: 'Looks like the email has already been taken',
+                          footer: '<a href="">Why do I have this issue?</a>'
+                        })
+                     }
+                 })
              } 
         }
     }
 </script>
 
+<style scoped>
+  .colr{
+    color:black
+  }
+</style>

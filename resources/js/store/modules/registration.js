@@ -25,10 +25,26 @@ const actions = {
       const token = response.data.token 
       localStorage.setItem('token', token)
       context.commit('registerUser', token)
+        
+      if(response.status == 200){
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Your BCO Airdroper account has beeen created successfully',
+        })
+      }
 
     })
     .catch(error => {
       console.log(error)
+      if(error.response.status == 422){
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops',
+          text: 'Looks like the email has already been taken, choose another',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+      }
     })
   }
 

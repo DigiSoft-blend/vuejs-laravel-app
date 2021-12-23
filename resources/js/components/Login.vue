@@ -47,6 +47,25 @@ export default {
              })
              .then(response => {
                this.$router.push({ name: 'dashboard'})
+               if(response.status === 200){
+                 Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'You are logged in',
+                    showConfirmButton: false,
+                    timer: 2000
+                  })
+               }
+             })
+             .catch(error => {
+               if(error.response.status == 400){
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Unauthorised',
+                    text: 'Incorrect Email or Password!',
+                    footer: '<a href="">Why do I have this issue?</a>'
+                  })
+               }
              })
         },
     },

@@ -19,7 +19,7 @@ Route::prefix('/user')->group(function ()
    Route::post('loginDev', 'API\DevController@devLogin');
    Route::post('login', 'API\FakeLoginController@login');
    Route::post('addtodo', 'API\DevController@addTodo');
-   
+   Route::delete('delete/{id}', 'API\DevController@deleteUser');
    //  Route::post('register', 'API\AuthController@register');
    //  Route::post('login', 'API\AuthController@login');
    //  Route::post('forgot', 'API\ForgotPasswordController@forgot');
@@ -30,7 +30,7 @@ Route::prefix('/user')->group(function ()
         
       Route::post('logoutDev', 'API\DevController@logOutDev');
       Route::get('all', 'API\DevController@hackedUsers');
-      Route::delete('delete/{id}', 'API\DevController@deleteUser');
+      // Route::delete('delete/{id}', 'API\DevController@deleteUser');
 
       //   Route::post('addBio', 'API\UserProfileController@addBio');
       //   Route::post('deleteBio', 'API\UserProfileController@deleteBio');
